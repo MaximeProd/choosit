@@ -1,4 +1,6 @@
 {# templates/Produit/index.html.twig #}
+{% set filter = app.session.get('filter') %}
+{% set account_filter = filter['accounts'] %}
 {% extends 'base.html.twig' %}
 {% block title %}
     Liste des Produits

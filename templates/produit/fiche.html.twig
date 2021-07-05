@@ -20,6 +20,9 @@
         </tbody>
     </table>
     <a class="btn btn-primary btn-sm" href="{{ path('produit') }}" title="Retour">
-        <i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Retour
+    <i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Retour
+    </a>
+    <a class="btn btn-primary btn-sm" href="{{ path('panier_add', {id: produit.id }) }}" title="Ajouter">
+        <i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Ajouter
     </a>
 {% endblock %}
