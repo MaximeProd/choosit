@@ -1,0 +1,25 @@
+{# templates/Produit/fiche.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}
+    Produit : {{ produit.nom }}
+{% endblock %}
+{% block body %}
+    <h1>Fiche : {{ produit.nom }}</h1>
+    <table class="table table-striped table-bordered table-condensed">
+        <thead>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Prix</th>
+        </thead>
+        <tbody>
+            <tr id="{{ produit.id }}">
+                <td id="titre">{{ produit.nom }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary btn-sm" href="{{ path('produit') }}" title="Retour">
+        <i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Retour
+    </a>
+{% endblock %}
