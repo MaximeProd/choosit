@@ -1,0 +1,31 @@
+{# templates/nav/index.html.twig #}
+
+{% set p = app.session.get('panier') %}
+{% set totalPanier = 0 %}
+
+{% for element in p %}
+
+    {% set totalPanier = totalPanier %}
+{% else %}
+    {% set totalPanier = 0 %}
+{% endfor %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ path('menu') }}">Choosit</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('produit') }}">Produits</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <a class="btn btn-outline-success my-2 my-sm-0" href="{{ path('panier') }}">Panier ( {{ totalPanier }} )</a>
+        </form>
+    </div>
+</nav>
+{% endblock %}
+

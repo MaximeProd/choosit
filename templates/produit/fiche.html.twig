@@ -19,10 +19,11 @@
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-primary btn-sm" href="{{ path('produit') }}" title="Retour">
-    <i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Retour
-    </a>
-    <a class="btn btn-primary btn-sm" href="{{ path('panier_add', {id: produit.id }) }}" title="Ajouter">
-        <i class="fa fa-edit" aria-hidden="true"></i>&nbsp;Ajouter
+
+    <form method="get" action="{{ path('panier_add', {id: produit.id }) }}">
+        <label for="quantite">Quantite</label>
+        <input type="number" class="form-control-range" id="quantite" value=1>
+        <input type="submit" class="btn btn-primary btn-sm" title="Ajouter">
+    </form>
     </a>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ProduitType;
 use App\Manager\ProduitsManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,8 +51,12 @@ class ProduitController extends AbstractController
             throw new NotFoundHttpException("Le produit n'existe pas");
         }
 
+        // Création du modèle du formulaire
+        $model = $this->get('form.factory')->create(ProduitType::class, $produit);
+
         return $this->render('produit/fiche.html.twig', [
             'produit' => $produit,
+            'form' => $model->createView()
         ]);
     }
 }
